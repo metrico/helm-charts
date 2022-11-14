@@ -1,0 +1,11 @@
+grafana: 
+  image: grafana/grafana-oss:latest 
+  hostname:
+  storage: 2Gi
+qryn: 
+  image: qxip/qryn:latest
+  hostname:
+clickhouse: 
+  image: clickhouse/clickhouse-server:latest
+  loglevel: info
+  storage: 10Gi
