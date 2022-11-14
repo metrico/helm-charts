@@ -1,6 +1,6 @@
 apiVersion: v2
 name: qryn
-version: 0.1.2
+version: 2.1.0
 description: qryn polyglot observability stack
 home: https://qryn.dev
 keywords:
