@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: qryn
+{{ include "common.labels" . | indent 4 }}
+  name: qryn
+  namespace: {{ dig "global" "monitoring" "namespace" .Release.Namespace (.Values | merge (dict)) | quote }}
+spec:
+  ports:
+    - name: "qryn"
+      port: 3100
+      targetPort: 3100
+  selector:
+    app: qryn
+  clusterIP: None
