@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qryn
+{{ include "common.labels" . | indent 4 }}
+  name: qryn
+  namespace: {{ dig "global" "monitoring" "namespace" .Release.Namespace (.Values | merge (dict)) | quote }}
+spec:
+  serviceName: qryn
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qryn
+  strategy: {}
+  template:
+    metadata:
+      name: qryn
+      labels:
+        app: qryn
+    spec:
+      containers:
+        - env:
+            - name: CLICKHOUSE_AUTH
+              value: "default:password"
+            - name: CLICKHOUSE_DB
+              value: "qryn"
+            - name: CLICKHOUSE_PORT
+              value: 8123
+            - name: CLICKHOUSE_SERVER
+              value: "clickhouse"
+            - name: DEBUG
+              value: "false"
+          image: {{ .Values.qryn.image }}
+          name: qryn
+          ports:
+            - containerPort: 3100
+          resources: {}
+      restartPolicy: Always
+status: {}
