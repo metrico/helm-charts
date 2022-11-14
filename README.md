@@ -7,3 +7,7 @@ To add this Helm chart repository to your Helm client:
 ```bash
 helm repo add metrico https://metrico.github.io/helm-charts/
 ```
+
+## Instructions
+
+For instructions and documentation refer to [qryn.dev](https://qryn.dev)
