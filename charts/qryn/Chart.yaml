@@ -1,0 +1,16 @@
+apiVersion: v2
+name: qryn
+version: 0.1.2
+description: qryn polyglot observability stack
+home: https://qryn.dev
+keywords:
+  - observability 
+  - monitoring 
+  - logs
+  - metrics
+  - tracing
+maintainers: 
+  - name: Lorenzo Mangani
+    email: lorenzo.mangani@gmail.com
+sources: 
+  - https://github.com/metrico/helm-charts
